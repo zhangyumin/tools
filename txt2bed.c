@@ -15,16 +15,19 @@ void main(int argc,char *argv[])
 		exit(0);
 	}
 	//char buffer[100];
-	int upa_start,upa_end,tagNum=0;
-	char Chr[10],strand[10],tagNumC[10];
+	int upa_start,upa_end,tagNum,coord=0;
+	char Chr[20],strand[20],tagNumC[20],coordC[20];
 	fprintf(fd,"track name=\"PAC\" description=\"system PAC tagnum\" useScore=0\n");
 	while(!feof(fp))
 	{
 		
-		fscanf(fp,"%s\t%s\t%d\t%d\t%d\n",Chr,strand,&upa_start,&upa_end,&tagNum);
-		char Pac[]="PAC:";
+		fscanf(fp,"%s\t%s\t%d\t%d\t%d\t%d\n",Chr,strand,&upa_start,&upa_end,&tagNum,&coord);
+		char Pac[100]="PAC:";
 		sprintf(tagNumC,"%d",tagNum);
 		strcat(Pac,tagNumC);
+		strcat(Pac,"@");
+		sprintf(coordC,"%d",coord);
+		strcat(Pac,coordC);
 		fprintf(fd,"%s\t%d\t%d\t%s\t%d\t%s\n",Chr,upa_start,upa_end,Pac,tagNum,strand);
 		
 	}

@@ -6,7 +6,7 @@
 
 echo -n "=========================Step1: export PAC file from mysql=================\n";
 read -p "请输入PAC所在的数据库名，物种名，以空格分割 :" db species
-mysql -uroot -proot -e"select chr,strand,UPA_start,UPA_end,ref_tagnum from t_"$species"_pac where ref_tagnum>0 into outfile '/var/www/front/tojbrowse/PAC_$species.txt'" $db;
+mysql -uroot -proot -e"select chr,strand,UPA_start,UPA_end,ref_tagnum,coord from t_"$species"_pac where ref_tagnum>0 into outfile '/var/www/front/tojbrowse/PAC_$species.txt'" $db;
 echo -n "=========================Step2: bed file to jbrowse========================\n";
 /var/www/front/src/c/txt2bed /var/www/front/tojbrowse/PAC_$species.txt /var/www/front/tojbrowse/PAC_$species.bed
 echo -n "=========================Step3: txt to bed=================================\n";
