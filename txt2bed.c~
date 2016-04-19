@@ -22,7 +22,7 @@ void main(int argc,char *argv[])
 	{
 		
 		fscanf(fp,"%s\t%s\t%d\t%d\t%d\t%d\n",Chr,strand,&upa_start,&upa_end,&tagNum,&coord);
-		char Pac[]="PAC:";
+		char Pac[100]="PAC:";
 		sprintf(tagNumC,"%d",tagNum);
 		strcat(Pac,tagNumC);
 		strcat(Pac,"@");

@@ -28,7 +28,7 @@ void main(int argc,char *argv[])
 		strcat(Pac,"@");
 		sprintf(coordC,"%d",coord);
 		strcat(Pac,coordC);
-		fprintf(fd,"%s\t%d\t%d\t%s\t%d\t%s\n",Chr,upa_start,upa_end,Pac,tagNum,strand);
+		fprintf(fd,"%s\t%d\t%d\t%s\t%d\t%s\n",Chr,upa_start-1,upa_end,Pac,tagNum,strand);
 		
 	}
 	printf("work done!\n");
